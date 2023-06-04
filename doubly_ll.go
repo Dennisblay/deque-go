@@ -48,9 +48,9 @@ func (dll *DoublyLinkedList) InsertAtEnd(data interface{}) {
 	}
 }
 
-func (dll *DoublyLinkedList) RemoveFront() {
+func (dll *DoublyLinkedList) PopFront() interface{} {
 	if dll.head == nil {
-		return
+		return nil
 	}
 	nodeToRemove := dll.head
 	if nodeToRemove == dll.tail {
@@ -64,11 +64,13 @@ func (dll *DoublyLinkedList) RemoveFront() {
 	}
 	nodeToRemove.prev = nil
 	nodeToRemove.next = nil
+	return nodeToRemove.data
+
 }
 
-func (dll *DoublyLinkedList) RemoveRear() {
+func (dll *DoublyLinkedList) PopBack() interface{} {
 	if dll.head == nil {
-		return
+		return nil
 	}
 	nodeToRemove := dll.tail
 	if nodeToRemove == dll.head {
@@ -82,6 +84,7 @@ func (dll *DoublyLinkedList) RemoveRear() {
 	}
 	nodeToRemove.next = nil
 	nodeToRemove.prev = nil
+	return nodeToRemove.data
 }
 
 // DisplayForward prints the elements of the doubly linked list in forward order
@@ -114,10 +117,10 @@ func main_() {
 	//dll.InsertAtEnd(4)
 	//dll.InsertAtEnd(5)
 	//dll.InsertAtEnd(6)
-	//dll.RemoveFront()
-	//dll.RemoveFront()
-	dll.RemoveRear()
-	dll.RemoveRear()
+	//dll.PopFront()
+	//dll.PopFront()
+	dll.PopBack()
+	dll.PopBack()
 
 	// Displaying the doubly linked list in forward and backward order
 	fmt.Println("Forward order:")

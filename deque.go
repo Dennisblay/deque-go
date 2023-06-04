@@ -95,15 +95,15 @@ import "fmt"
 //	return len(dq.items)
 //}
 //
-//func (dq *Deque) AddFront(item interface{}) {
+//func (dq *Deque) PushFront(item interface{}) {
 //	dq.items = append([]interface{}{item}, dq.items...)
 //}
 //
-//func (dq *Deque) AddRear(item interface{}) {
+//func (dq *Deque) PushBack(item interface{}) {
 //	dq.items = append(dq.items, item)
 //}
 //
-//func (dq *Deque) RemoveFront() interface{} {
+//func (dq *Deque) PopFront() interface{} {
 //	if dq.IsEmpty() {
 //		return nil
 //	}
@@ -112,7 +112,7 @@ import "fmt"
 //	return front
 //}
 //
-//func (dq *Deque) RemoveRear() interface{} {
+//func (dq *Deque) PopBack() interface{} {
 //	if dq.IsEmpty() {
 //		return nil
 //	}
@@ -124,14 +124,14 @@ import "fmt"
 //func main_() {
 //	dq := Deque{}
 //
-//	dq.AddFront(1)
-//	dq.AddFront(2)
-//	dq.AddRear(3)
+//	dq.PushFront(1)
+//	dq.PushFront(2)
+//	dq.PushBack(3)
 //
 //	fmt.Println("Deque size:", dq.Size())
 //
-//	front := dq.RemoveFront()
-//	rear := dq.RemoveRear()
+//	front := dq.PopFront()
+//	rear := dq.PopBack()
 //
 //	fmt.Println("Front:", front)
 //	fmt.Println("Rear:", rear)
@@ -140,17 +140,16 @@ import "fmt"
 
 func main() {
 	deque := &Deque{}
-	for i := 0; i < 10; i++ {
-		deque.AddRear(i)
-	}
+	//for i := 0; i < 10; i++ {
+	//	deque.PushBack(i)
+	//}
 	fmt.Println(deque.size)
-	deque.RemoveFrontDeque()
-	deque.RemoveFrontDeque()
+	fmt.Println(deque.PoPFront())
 	fmt.Printf("Size of deque: %v \n", deque.size)
 	//
-	deque.RemoveRearDeque()
-	deque.RemoveRearDeque()
-	deque.RemoveRearDeque()
+	deque.PoPBack()
+	deque.PoPBack()
+	deque.PoPBack()
 	fmt.Printf("Size of deque: %v \n", deque.size)
 
 	fmt.Println("Display list forward:")
@@ -168,18 +167,18 @@ func (d *Deque) isEmpty() bool {
 	return d.head == nil
 }
 
-func (d *Deque) AddFront(data interface{}) {
+func (d *Deque) PushFront(data interface{}) {
 	d.InsertAtEnd(data)
 }
 
-func (d *Deque) AddRear(data interface{}) {
+func (d *Deque) PushBack(data interface{}) {
 	d.InsertAtEnd(data)
 }
 
-func (d *Deque) RemoveFrontDeque() {
-	d.RemoveFront()
+func (d *Deque) PoPFront() interface{} {
+	return d.PopFront()
 }
 
-func (d *Deque) RemoveRearDeque() {
-	d.RemoveRear()
+func (d *Deque) PoPBack() interface{} {
+	return d.PopBack()
 }
