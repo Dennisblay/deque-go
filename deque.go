@@ -140,9 +140,9 @@ import "fmt"
 
 func main() {
 	deque := &Deque{}
-	//for i := 0; i < 10; i++ {
-	//	deque.PushBack(i)
-	//}
+	for i := 0; i < 10; i++ {
+		deque.PushBack(i)
+	}
 	fmt.Println(deque.size)
 	fmt.Println(deque.PoPFront())
 	fmt.Printf("Size of deque: %v \n", deque.size)
