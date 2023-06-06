@@ -162,11 +162,6 @@ type Deque struct {
 	DoublyLinkedList
 }
 
-// IsEmpty method checks if the deque is empty by verifying if the front pointer is nil.
-func (d *Deque) isEmpty() bool {
-	return d.head == nil
-}
-
 func (d *Deque) PushFront(data interface{}) {
 	d.InsertAtEnd(data)
 }

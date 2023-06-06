@@ -20,7 +20,7 @@ type DoublyLinkedList struct {
 func (dll *DoublyLinkedList) InsertAtBeginning(data interface{}) {
 	newNode := &Node{data: data}
 
-	if dll.head == nil {
+	if dll.IsEmpty() {
 		dll.head = newNode
 		dll.tail = newNode
 		dll.size++
@@ -36,7 +36,7 @@ func (dll *DoublyLinkedList) InsertAtBeginning(data interface{}) {
 func (dll *DoublyLinkedList) InsertAtEnd(data interface{}) {
 	newNode := &Node{data: data}
 
-	if dll.head == nil {
+	if dll.IsEmpty() {
 		dll.head = newNode
 		dll.tail = newNode
 		dll.size++
@@ -49,7 +49,7 @@ func (dll *DoublyLinkedList) InsertAtEnd(data interface{}) {
 }
 
 func (dll *DoublyLinkedList) PopFront() interface{} {
-	if dll.head == nil {
+	if dll.IsEmpty() {
 		return nil
 	}
 	nodeToRemove := dll.head
@@ -68,8 +68,15 @@ func (dll *DoublyLinkedList) PopFront() interface{} {
 
 }
 
+func (d *Deque) Front() interface{} {
+	if d.IsEmpty() {
+		return nil
+	}
+	return d.head.data
+}
+
 func (dll *DoublyLinkedList) PopBack() interface{} {
-	if dll.head == nil {
+	if dll.IsEmpty() {
 		return nil
 	}
 	nodeToRemove := dll.tail
@@ -85,6 +92,17 @@ func (dll *DoublyLinkedList) PopBack() interface{} {
 	nodeToRemove.next = nil
 	nodeToRemove.prev = nil
 	return nodeToRemove.data
+}
+
+func (d *Deque) Back() interface{} {
+	if d.IsEmpty() {
+		return nil
+	}
+	return d.tail.data
+}
+
+func (dll *DoublyLinkedList) IsEmpty() bool {
+	return dll.head == nil
 }
 
 // DisplayForward prints the elements of the doubly linked list in forward order
