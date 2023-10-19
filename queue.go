@@ -4,18 +4,6 @@ import (
 	"fmt"
 )
 
-func main__() {
-	q := Queue{}
-	for i := 1; i <= 10; i++ {
-		q.enqueue(i)
-	}
-	fmt.Println(q.size)
-	q.DisplayList()
-	fmt.Println("done")
-	//a := q.dequeue()
-
-}
-
 type Queue struct {
 	LinkedList
 }
