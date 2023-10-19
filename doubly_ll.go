@@ -124,26 +124,3 @@ func (dll *DoublyLinkedList) DisplayBackward() {
 	fmt.Println()
 }
 
-func main_() {
-	dll := DoublyLinkedList{}
-	// Inserting elements at the beginning of the list
-	//dll.InsertAtBeginning(3)
-	//dll.InsertAtBeginning(2)
-	//dll.InsertAtBeginning(1)
-	//
-	//// Inserting elements at the end of the list
-	//dll.InsertAtEnd(4)
-	//dll.InsertAtEnd(5)
-	//dll.InsertAtEnd(6)
-	//dll.PopFront()
-	//dll.PopFront()
-	dll.PopBack()
-	dll.PopBack()
-
-	// Displaying the doubly linked list in forward and backward order
-	fmt.Println("Forward order:")
-	dll.DisplayForward()
-
-	fmt.Println("\nBackward order:")
-	dll.DisplayBackward()
-}
